@@ -1,1 +1,49 @@
-spring.application.name=message-manager-service
+### SERVER
+server:
+  port: ${SERVER_PORT:8080}
+
+### SPRING
+spring:
+  application:
+    name: message-manager-service
+  output:
+    ansi:
+      enabled: ALWAYS
+
+### SWAGGER
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /docs
+    operationsSorter: method
+
+### LOGGING
+logging:
+  level:
+    root: INFO
+    com:
+      example: TRACE
+
+### ACTUATOR
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health, info
+  info:
+    env:
+      enabled: true
+
+### INFORMATION
+info:
+  app:
+    name: "message-manager-service"
+    description: "Message manager service"
+  author: "Leonardo Ohashi"
+  java-version: ${java.version}
